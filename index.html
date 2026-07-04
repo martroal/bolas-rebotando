@@ -26,8 +26,13 @@
     flex-wrap: wrap;
     justify-content: center;
   }
-  .stage { box-shadow: 0 20px 60px rgba(0,0,0,.5); border-radius: 16px; }
-  canvas { display: block; border-radius: 16px; background: rgba(0,0,0,.15); }
+  .stage {
+    box-shadow: 0 20px 60px rgba(0,0,0,.5);
+    border-radius: 16px;
+    width: min(560px, 92vw);      /* se achica en pantallas angostas */
+  }
+  /* resolución interna 560×560 (física intacta), escalado visual por CSS */
+  canvas { display: block; width: 100%; height: auto; border-radius: 16px; background: rgba(0,0,0,.15); }
 
   .panel {
     width: 234px;
@@ -137,6 +142,23 @@
   }
   .results th { opacity: .55; font-weight: 600; text-transform: uppercase; font-size: 10px; }
   .results td b { color: #ff9db0; }
+
+  /* ---------- Móvil / pantallas angostas ---------- */
+  @media (max-width: 900px) {
+    body { padding: 14px; gap: 14px; }
+    h1 { font-size: 18px; }
+    .layout { flex-direction: column; align-items: center; gap: 16px; width: 100%; }
+    .stage { order: -1; }                 /* el juego siempre arriba */
+    .panel { width: min(560px, 92vw); }   /* paneles a ancho completo */
+  }
+  @media (max-width: 420px) {
+    body { padding: 10px; }
+    .panel { padding: 14px; gap: 12px; }
+    /* controles más cómodos al tacto */
+    input[type="number"], select { padding: 10px; font-size: 15px; }
+    button { padding: 12px 14px; }
+    .field label { font-size: 11px; }
+  }
 </style>
 </head>
 <body>
