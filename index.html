@@ -223,7 +223,7 @@
 
       <div class="field" id="limitField">
         <label>Límite de bolas <b>(0 = sin tope)</b></label>
-        <input type="number" id="limit" min="0" value="0">
+        <input type="number" id="limit" min="0" value="1000">
       </div>
 
       <div class="field" id="spawnField">
@@ -245,7 +245,7 @@
         <button id="reset">Reiniciar</button>
       </div>
 
-      <div class="count">Bolas: <b id="n">2</b> / <b id="limitLabel">∞</b> · <b id="fps">–</b> FPS</div>
+      <div class="count">Bolas: <b id="n">2</b> / <b id="limitLabel">1000</b> · <b id="fps">–</b> FPS</div>
       <div class="score" id="score"></div>
       <div class="warn" id="warn"></div>
     </div>
@@ -305,7 +305,7 @@ let cfg = {
   ballShape: 'circle',     // circle | square | triangle
   arena: 'circle',         // circle | square | triangle | hexagon
   trail: false,
-  limit: Infinity,
+  limit: 1000,
   spawnMode: 'contact',
 };
 
